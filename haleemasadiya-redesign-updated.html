@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haleema Sadiya Muslim Girls Orphanage | Kadapa, Andhra Pradesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Amiri:wght@400;700&family=Noto+Serif+Telugu:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #1a6b4a;
+    --emerald-light: #28a06e;
+    --emerald-dark: #0f4230;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #faf6ee;
+    --dark: #0d1a14;
+    --text: #1c2a22;
+    --text-muted: #5a7265;
+    --white: #ffffff;
+    --glass: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.15);
+    --shadow-gold: 0 0 40px rgba(201,168,76,0.3);
+    --shadow-emerald: 0 20px 60px rgba(26,107,74,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  body.rtl { direction: rtl; font-family: 'Amiri', serif; }
+  body.telugu { font-family: 'Noto Serif Telugu', serif; }
+
+  /* ─── LANGUAGE BAR ─── */
+  .lang-bar {
+    background: var(--dark);
+    padding: 8px 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+  }
+  .lang-btn {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    padding: 4px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+    border-color: var(--gold);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 24px; left: 0; right: 0;
+    z-index: 999;
+    background: rgba(13,26,20,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    transition: all 0.4s;
+  }
+  nav.scrolled { background: rgba(13,26,20,0.98); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+ 
+  .site-logo img {
+  max-height: 50px; /* keeps it within header */
+  width: auto;      /* maintains aspect ratio */
+  margin-right: 10px;
+}
+
+.site-logo img {
+  max-height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .site-logo img {
+    max-height: 50px;
+  }
+}
+
+.site-logo img {
+  vertical-align: middle;
+}
+
+
+  .nav-logo:hover .nav-logo-icon { transform: rotate(15deg); }
+  .nav-logo-text {
+    display: flex; flex-direction: column;
+  }
+  .nav-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .nav-logo-text span:last-child {
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.1);
+  }
+
+  .nav-donate-btn {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark) !important;
+    font-weight: 700 !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--gold-light);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 97px; left: 0; right: 0;
+    background: rgba(13,26,20,0.98);
+    backdrop-filter: blur(20px);
+    z-index: 998;
+    padding: 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  .mobile-nav.open { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav ul { list-style: none; }
+  .mobile-nav ul li a {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .mobile-nav ul li a:hover { color: var(--gold-light); background: rgba(201,168,76,0.1); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #071910 0%, #0f3d28 40%, #1a6b4a 70%, #0d2c1d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 97px;
+  }
+
+  /* 3D Geometric background */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .geo-shape {
+    position: absolute;
+    border: 1px solid rgba(201,168,76,0.12);
+    transform-origin: center;
+    animation: geoRotate 20s linear infinite;
+  }
+  .geo-1 { width: 500px; height: 500px; border-radius: 30px; top: -100px; right: -100px; animation-duration: 30s; }
+  .geo-2 { width: 300px; height: 300px; border-radius: 20px; bottom: 100px; left: -80px; animation-direction: reverse; animation-duration: 25s; }
+  .geo-3 { width: 200px; height: 200px; border-radius: 50%; top: 50%; left: 20%; opacity: 0.06; }
+  .geo-4 { width: 150px; height: 150px; transform: rotate(45deg); top: 30%; right: 15%; border-color: rgba(40,160,110,0.2); }
+
+  @keyframes geoRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  /* Islamic pattern overlay */
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  /* Glowing orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    animation: orbFloat 8s ease-in-out infinite;
+  }
+  .orb-1 { width: 400px; height: 400px; background: rgba(26,107,74,0.4); top: -100px; right: -100px; }
+  .orb-2 { width: 300px; height: 300px; background: rgba(201,168,76,0.15); bottom: -50px; left: -50px; animation-delay: -4s; }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 24px;
+    max-width: 900px;
+  }
+
+  .hero-bismillah {
+    font-family: "Dubai", "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--gold-light);
+    font-size: clamp(20px, 4vw, 32px);
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 7vw, 78px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-title .gold { color: var(--gold-light); }
+
+  .hero-subtitle {
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-desc {
+    font-size: clamp(15px, 1.8vw, 18px);
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 48px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 60px);
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.3s forwards;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .stat-divider {
+    width: 1px;
+    background: rgba(201,168,76,0.25);
+    align-self: stretch;
+    min-height: 60px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.4s;
+    box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(201,168,76,0.5);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    transition: all 0.4s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.08);
+    transform: translateY(-3px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 1s ease 2s forwards;
+  }
+  .scroll-indicator span { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+  .scroll-mouse {
+    width: 24px; height: 40px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6px;
+  }
+  .scroll-dot {
+    width: 4px; height: 8px;
+    background: var(--gold-light);
+    border-radius: 2px;
+    animation: scrollDown 2s ease infinite;
+  }
+  @keyframes scrollDown {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(12px); }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: clamp(60px, 8vw, 120px) 24px; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(40px, 6vw, 80px);
+  }
+  .section-tag {
+    display: inline-block;
+    color: var(--emerald-light);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-line {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--emerald), var(--gold));
+    margin: 0 auto 20px;
+    border-radius: 2px;
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ─── QURAN SECTION ─── */
+  .quran-section {
+    background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--dark) 100%);
+    padding: clamp(60px, 8vw, 100px) 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .quran-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+  .quran-card {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quran-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(201,168,76,0.5));
+  }
+  .quran-arabic {
+    font-family: "Dubai", "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--gold-light);
+    line-height: 2;
+    margin-bottom: 24px;
+    direction: rtl;
+  }
+  .quran-text {
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 2;
+    margin-bottom: 16px;
+  }
+  .quran-ref {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ─── ABOUT ─── */
+  .about-section { background: var(--cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+  .about-images {
+    position: relative;
+    height: 480px;
+  }
+  .about-img-main {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 24px;
+    top: 0; left: 0;
+    box-shadow: var(--shadow-emerald);
+    transition: transform 0.4s;
+  }
+  .about-img-secondary {
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    object-fit: cover;
+    border-radius: 20px;
+    bottom: 0; right: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    border: 4px solid var(--cream);
+    transition: transform 0.4s;
+  }
+  .about-img-main:hover { transform: scale(1.02); }
+  .about-img-secondary:hover { transform: scale(1.03); }
+  .about-badge-float {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-emerald);
+    z-index: 3;
+    min-width: 120px;
+  }
+  .about-badge-float .num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; display: block; line-height: 1; }
+  .about-badge-float .lbl { font-size: 11px; letter-spacing: 1px; opacity: 0.9; margin-top: 4px; }
+  .about-content { }
+  .about-content .section-header { text-align: left; }
+  .about-content .section-line { margin: 0 0 20px; }
+  .about-content p {
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .highlight-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, rgba(26,107,74,0.15), rgba(40,160,110,0.2));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 1px solid rgba(26,107,74,0.2);
+  }
+  .highlight-text h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+  .highlight-text p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+  /* ─── SERVICES / COURSES ─── */
+  .services-section {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .services-section .section-title { color: var(--white); }
+  .services-section .section-desc { color: rgba(255,255,255,0.5); }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+  .course-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 36px 32px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--emerald), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+  .course-card:hover::before { transform: scaleX(1); }
+  .course-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(201,168,76,0.2);
+    box-shadow: var(--shadow-gold);
+  }
+  .course-icon {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, rgba(26,107,74,0.3), rgba(201,168,76,0.2));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  .course-duration {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .course-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); margin-bottom: 12px; font-weight: 700; }
+  .course-desc { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.8; }
+  .course-subjects { list-style: none; margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .course-subjects li {
+    background: rgba(26,107,74,0.2);
+    border: 1px solid rgba(40,160,110,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+
+  /* Skills cards */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .skill-card:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.2);
+    transform: translateY(-4px);
+  }
+  .skill-card .sk-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+  .skill-card .sk-name { color: rgba(255,255,255,0.7); font-size: 13px; }
+
+  /* ─── IMPACT ─── */
+  .impact-section {
+    background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
+    position: relative;
+    overflow: hidden;
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    text-align: center;
+  }
+  .impact-item {
+    position: relative;
+    padding: 32px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    transition: all 0.3s;
+  }
+  .impact-item:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
+  .impact-num { font-family: 'Playfair Display', serif; font-size: clamp(42px, 6vw, 64px); font-weight: 900; color: var(--gold-light); display: block; line-height: 1; }
+  .impact-label { color: rgba(255,255,255,0.7); font-size: 14px; letter-spacing: 1px; margin-top: 8px; }
+  .impact-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+
+  /* ─── DONATION ─── */
+  .donation-section { background: var(--cream); }
+  .donation-inner {
+    background: linear-gradient(135deg, var(--dark) 0%, #1a3a2a 100%);
+    border-radius: 32px;
+    padding: clamp(40px, 6vw, 80px);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .donation-inner::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15), transparent);
+    border-radius: 50%;
+    top: -100px; right: -50px;
+    pointer-events: none;
+  }
+  .donation-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); color: var(--white); margin-bottom: 16px; }
+  .donation-inner p { color: rgba(255,255,255,0.65); font-size: 16px; max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
+
+  .donation-methods {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .donation-method {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 160px;
+    transition: all 0.3s;
+  }
+  .donation-method:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    transform: translateY(-4px);
+  }
+  .donation-method .icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .donation-method .title { color: var(--white); font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .donation-method .detail { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+  /* ─── BANK DETAILS ─── */
+  .bank-details-section {
+    background: var(--cream);
+    padding: clamp(60px, 8vw, 100px) 0;
+  }
+  
+  .bank-details-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .bank-details-header .section-tag {
+    margin-bottom: 12px;
+  }
+  
+  .bank-details-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    color: var(--emerald-dark);
+    margin-bottom: 16px;
+  }
+  
+  .bank-details-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  .bank-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .bank-card {
+    background: var(--white);
+    border: 2px solid var(--gold-light);
+    border-radius: 20px;
+    padding: 36px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 30px rgba(26, 107, 74, 0.1);
+  }
+  
+  .bank-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(26, 107, 74, 0.2);
+    border-color: var(--gold);
+  }
+  
+  .bank-card-icon {
+    font-size: 44px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  
+  .bank-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--emerald-dark);
+    margin-bottom: 16px;
+  }
+  
+  .bank-details-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .bank-details-value {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--emerald);
+    margin-bottom: 20px;
+    word-break: break-all;
+    background: rgba(201, 168, 76, 0.08);
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid var(--gold);
+  }
+  
+  .bank-details-item {
+    margin-bottom: 20px;
+  }
+  
+  .bank-details-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .copy-btn {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    margin-top: 12px;
+  }
+  
+  .copy-btn:hover {
+    background: var(--gold-light);
+    transform: scale(1.05);
+  }
+  
+  .copy-btn.copied {
+    background: var(--emerald);
+    color: var(--white);
+  }
+  
+  .bank-info-note {
+    background: linear-gradient(135deg, rgba(26, 107, 74, 0.08), rgba(201, 168, 76, 0.08));
+    border-left: 4px solid var(--emerald);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .bank-info-note p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+  }
+  
+  .bank-info-note strong {
+    color: var(--emerald-dark);
+    font-weight: 700;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-section { background: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .contact-info { }
+  .contact-card {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: var(--cream);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(26,107,74,0.1);
+    transition: all 0.3s;
+  }
+  .contact-card:hover { transform: translateX(5px); border-color: rgba(26,107,74,0.3); }
+  .contact-card-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    color: white;
+  }
+  .contact-card-text h4 { font-weight: 700; color: var(--dark); margin-bottom: 4px; font-size: 14px; }
+  .contact-card-text p { color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+  .contact-card-text a { color: var(--emerald); text-decoration: none; }
+
+  .contact-form {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid rgba(26,107,74,0.1);
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--white);
+    border: 1.5px solid rgba(26,107,74,0.15);
+    border-radius: 12px;
+    font-size: 15px;
+    color: var(--text);
+    font-family: inherit;
+    transition: all 0.3s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--emerald);
+    box-shadow: 0 0 0 3px rgba(26,107,74,0.1);
+  }
+  .form-group textarea { min-height: 130px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-emerald);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    padding: clamp(50px, 7vw, 90px) 24px 30px;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand { }
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .footer-logo-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--emerald), var(--gold));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  .footer-logo-title span:first-child{
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .footer-logo-title span:last-child {
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-brand p { color: rgba(255,255,255,0.45); font-size: 14px; line-height: 1.8; }
+  .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 13px; }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ─── NEWS TICKER ─── */
+  .news-bar {
+    background: var(--emerald-dark);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+  }
+  .news-label {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+  .news-ticker {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  .news-ticker-inner {
+    display: flex;
+    gap: 60px;
+    animation: tickerScroll 30s linear infinite;
+    white-space: nowrap;
+  }
+  .news-ticker-inner span { color: rgba(255,255,255,0.7); font-size: 13px; }
+  .news-ticker-inner span strong { color: var(--gold-light); }
+  @keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── GALLERY PREVIEW ─── */
+  .gallery-section { background: var(--cream); }
+  
+  .gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .gallery-filter-btn {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--text);
+    padding: 10px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .gallery-filter-btn:hover,
+  .gallery-filter-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+    border-color: var(--gold);
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    height: 300px;
+    background: linear-gradient(135deg, var(--emerald-light), var(--gold-light));
+    transition: all 0.4s ease;
+    border: 3px solid transparent;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .gallery-item.hidden {
+    display: none;
+  }
+  
+  .gallery-item:hover { 
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-emerald);
+    border-color: var(--gold);
+  }
+  
+  .gallery-item img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .gallery-item:hover img { 
+    transform: scale(1.08);
+  }
+  
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,26,20,0.85), rgba(13,26,20,0.4));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 24px;
+    text-align: center;
+  }
+  
+  .gallery-item:hover .gallery-item-overlay { 
+    opacity: 1; 
+  }
+  
+  .gallery-item-overlay span { 
+    color: var(--white); 
+    font-size: 16px; 
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .gallery-item-category {
+    color: var(--gold-light);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 1; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-images { height: 300px; margin-bottom: 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-stats { gap: 20px; }
+    .stat-divider { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 160px);
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-column: span 1; }
+    .gallery-item:nth-child(2) { grid-column: span 1; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* RTL overrides */
+  body.rtl .about-content .section-header { text-align: right; }
+  body.rtl .about-content .section-line { margin: 0 0 20px auto; }
+  body.rtl .highlight-item { flex-direction: row-reverse; }
+  body.rtl .contact-card:hover { transform: translateX(-5px); }
+  body.rtl .footer-grid { direction: rtl; }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" data-lang="en">English</button>
+  <button class="lang-btn" onclick="setLang('te')" data-lang="te">తెలుగు</button>
+  <button class="lang-btn" onclick="setLang('ar')" data-lang="ar">العربية</button>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="Haleema Sadiya Logo" style="width:44px;height:44px;object-fit:contain;border-radius:10px;">
+    <div class="nav-logo-text">
+      <span data-en="Haleema Sadiya" data-te="హలీమా సదియా" data-ar="هليمة صديقة">Haleema Sadiya</span>
+      <span data-en="Muslim Girls Orphanage" data-te="ముస్లిం బాలికల అనాథ శరణాలయం" data-ar="دار أيتام للبنات المسلمات">Muslim Girls Orphanage</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" data-en="Home" data-te="హోమ్" data-ar="الرئيسية">Home</a></li>
+    <li><a href="#about" data-en="About" data-te="మా గురించి" data-ar="عن المؤسسة">About</a></li>
+    <li><a href="#courses" data-en="Courses" data-te="కోర్సులు" data-ar="الدورات">Courses</a></li>
+    <li><a href="#gallery" data-en="Gallery" data-te="గ్యాలరీ" data-ar="معرض الصور">Gallery</a></li>
+    <li><a href="#contact" data-en="Contact" data-te="సంప్రదించండి" data-ar="تواصل معنا">Contact</a></li>
+    <li><a href="#bank-details" class="nav-donate-btn" data-en="💚 Donate" data-te="💚 విరాళం" data-ar="💚 تبرع">💚 Donate</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#home" onclick="closeMenu()" data-en="🏠 Home" data-te="🏠 హోమ్" data-ar="🏠 الرئيسية">🏠 Home</a></li>
+    <li><a href="#about" onclick="closeMenu()" data-en="ℹ️ About Us" data-te="ℹ️ మా గురించి" data-ar="ℹ️ عن المؤسسة">ℹ️ About Us</a></li>
+    <li><a href="#courses" onclick="closeMenu()" data-en="📚 Courses" data-te="📚 కోర్సులు" data-ar="📚 الدورات">📚 Courses</a></li>
+    <li><a href="#gallery" onclick="closeMenu()" data-en="🖼️ Gallery" data-te="🖼️ గ్యాలరీ" data-ar="🖼️ معرض الصور">🖼️ Gallery</a></li>
+    <li><a href="#contact" onclick="closeMenu()" data-en="📞 Contact" data-te="📞 సంప్రదించండి" data-ar="📞 تواصل معنا">📞 Contact</a></li>
+    <li><a href="#bank-details" onclick="closeMenu()" data-en="💚 Donate Now" data-te="💚 ఇప్పుడు విరాళం" data-ar="💚 تبرع الآن">💚 Donate Now</a></li>
+  </ul>
+</div>
+
+<!-- NEWS TICKER -->
+<div class="news-bar" style="margin-top:97px">
+  <div class="news-label" data-en="NEWS" data-te="వార్తలు" data-ar="أخبار">NEWS</div>
+  <div class="news-ticker">
+    <div class="news-ticker-inner">
+      <span data-en="🌟 <strong>Rice Bucket Challenge</strong> — 268 kg rice donated to orphanage (The Hindu)" data-te="🌟 <strong>రైస్ బకెట్ చాలెంజ్</strong> — 268 కిలోల బియ్యం విరాళం" data-ar="🌟 <strong>تحدي دلو الأرز</strong> — تبرع بـ 268 كيلو من الأرز">🌟 <strong>Rice Bucket Challenge</strong> — 268 kg rice donated to orphanage (The Hindu)</span>
+      <span data-en="🏗️ <strong>Land Allotted</strong> — New land allocated for the orphanage expansion (Jan 2009)" data-te="🏗️ <strong>భూమి కేటాయింపు</strong> — కొత్త భూమి కేటాయించబడింది" data-ar="🏗️ <strong>تخصيص أرض</strong> — تخصيص أرض جديدة للتوسع">🏗️ <strong>Land Allotted</strong> — New land allocated for the orphanage expansion (Jan 2009)</span>
+      <span data-en="📍 <strong>Location:</strong> 14/796-A, Nakhash Street, Kadapa, Andhra Pradesh — Phone: +91-8562-250885" data-te="📍 <strong>చిరునామా:</strong> 14/796-A, నఖాష్ స్ట్రీట్, కడప, ఆంధ్రప్రదేశ్" data-ar="📍 <strong>العنوان:</strong> 14/796-A شارع نخش، كدابا، أندرا براديش">📍 <strong>Location:</strong> 14/796-A, Nakhash Street, Kadapa, Andhra Pradesh — Phone: +91-8562-250885</span>
+      <span data-en="🌟 <strong>Rice Bucket Challenge</strong> — 268 kg rice donated to orphanage (The Hindu)" data-te="🌟 <strong>రైస్ బకెట్ చాలెంజ్</strong> — 268 కిలోల బియ్యం విరాళం" data-ar="🌟 <strong>تحدي دلو الأرز</strong> — تبرع بـ 268 كيلو من الأرز">🌟 <strong>Rice Bucket Challenge</strong> — 268 kg rice donated to orphanage (The Hindu)</span>
+      <span data-en="🏗️ <strong>Land Allotted</strong> — New land allocated for the orphanage expansion (Jan 2009)" data-te="🏗️ <strong>భూమి కేటాయింపు</strong> — కొత్త భూమి కేటాయించబడింది" data-ar="🏗️ <strong>تخصيص أرض</strong> — تخصيص أرض جديدة للتوسع">🏗️ <strong>Land Allotted</strong> — New land allocated for the orphanage expansion (Jan 2009)</span>
+      <span data-en="📍 <strong>Location:</strong> 14/796-A, Nakhash Street, Kadapa, Andhra Pradesh — Phone: +91-8562-250885" data-te="📍 <strong>చిరునామా:</strong> 14/796-A, నఖాష్ స్ట్రీట్, కడప, ఆంధ్రప్రదేశ్" data-ar="📍 <strong>العنوان:</strong> 14/796-A شارع نخش، كدابا، أندرا براديش">📍 <strong>Location:</strong> 14/796-A, Nakhash Street, Kadapa, Andhra Pradesh — Phone: +91-8562-250885</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="geo-shape geo-1"></div>
+    <div class="geo-shape geo-2"></div>
+    <div class="geo-shape geo-3"></div>
+    <div class="geo-shape geo-4"></div>
+    <div class="hero-pattern"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-bismillah" data-en="بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ" data-te="బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్" data-ar="بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <div class="hero-badge">
+      <span>✦</span>
+      <span data-en="Est. 2005 · Kadapa, Andhra Pradesh, India" data-te="స్థాపించబడింది 2005 · కడప, ఆంధ్రప్రదేశ్" data-ar="تأسست 2005 · كدابا، أندرا براديش">Est. 2005 · Kadapa, Andhra Pradesh, India</span>
+    </div>
+    <h1 class="hero-title">
+      <span data-en="Nurturing" data-te="పెంపొందించడం" data-ar="تربية">Nurturing</span><br>
+      <span class="gold" data-en="Hearts & Minds" data-te="హృదయాలు & మనస్సులు" data-ar="القلوب والعقول">Hearts & Minds</span>
+    </h1>
+    <p class="hero-subtitle" data-en="Haleema Sadiya Muslim Girls Orphanage" data-te="హలీమా సదియా ముస్లిం బాలికల అనాథ శరణాలయం" data-ar="دار أيتام هليمة صديقة للبنات المسلمات">Haleema Sadiya Muslim Girls Orphanage</p>
+    <p class="hero-desc" data-en="Providing shelter, Islamic education, modern schooling, and self-employment skills to orphan girls — empowering them to become confident, capable, and spiritually grounded women." data-te="అనాథ బాలికలకు ఆశ్రయం, ఇస్లామిక్ విద్య, ఆధునిక చదువు మరియు స్వయం ఉపాధి నైపుణ్యాలు అందించడం." data-ar="توفير المأوى والتعليم الإسلامي والمهارات المهنية للفتيات الأيتام لتمكينهن.">Providing shelter, Islamic education, modern schooling, and self-employment skills to orphan girls — empowering them to become confident, capable, and spiritually grounded women.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-count="100">100+</span>
+        <div class="stat-label" data-en="Girls Sheltered" data-te="బాలికలు ఆశ్రయం" data-ar="فتاة تحت الرعاية">Girls Sheltered</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">20+</span>
+        <div class="stat-label" data-en="Years of Service" data-te="సేవా సంవత్సరాలు" data-ar="سنوات من الخدمة">Years of Service</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">2</span>
+        <div class="stat-label" data-en="Courses Offered" data-te="అందించే కోర్సులు" data-ar="دورات مقدمة">Courses Offered</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <div class="stat-label" data-en="Floor Building" data-te="అంతస్తుల భవనం" data-ar="مبنى متعدد الطوابق">Floor Building</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#donate" class="btn-primary" data-en="💚 Donate Now" data-te="💚 ఇప్పుడు విరాళం" data-ar="💚 تبرع الآن">💚 Donate Now</a>
+      <a href="#about" class="btn-outline" data-en="Learn More →" data-te="మరింత తెలుసుకోండి →" data-ar="تعرف على المزيد ←">Learn More →</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span data-en="SCROLL" data-te="స్క్రోల్" data-ar="انزل">SCROLL</span>
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- QURAN SECTION -->
+<section class="quran-section">
+  <div class="container">
+    <div class="quran-card reveal">
+      <span class="quran-icon">📖</span>
+      <div class="quran-arabic">أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ</div>
+      <p class="quran-text" data-en='"Did He not find you an orphan and give you refuge? And found you poor and made you self-sufficient? Therefore, treat not the orphans with oppression."' data-te='"ఆయన మిమ్మల్ని అనాథగా కనుగొని ఆశ్రయం ఇవ్వలేదా? అందువల్ల అనాథలను అణిచివేయకండి."' data-ar='"أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ — فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ"'>"Did He not find you an orphan and give you refuge? And found you poor and made you self-sufficient? Therefore, treat not the orphans with oppression."</p>
+      <div class="quran-ref" data-en="Surah Ad-Duha (93:6-9) — Holy Quran" data-te="సూరా అల్-దుహా (93:6-9) — పవిత్ర ఖురాన్" data-ar="سورة الضحى (93:6-9) — القرآن الكريم">Surah Ad-Duha (93:6-9) — Holy Quran</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal-left">
+        <img class="about-img-main" src="https://www.haleemasadiya.org/assets/img/abt_us1.jpg" alt="Education at Haleema Sadiya Orphanage" onerror="this.src='https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600'">
+        <img class="about-img-secondary" src="https://www.haleemasadiya.org/assets/img/abt_us2.jpg" alt="Girls at Orphanage" onerror="this.src='https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400'">
+        <div class="about-badge-float">
+          <span class="num">2005</span>
+          <div class="lbl" data-en="Founded" data-te="స్థాపించబడింది" data-ar="تأسست">Founded</div>
+        </div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-header">
+          <div class="section-tag" data-en="Our Story" data-te="మా కథ" data-ar="قصتنا">Our Story</div>
+          <h2 class="section-title" data-en="About Haleema Sadiya Orphanage" data-te="హలీమా సదియా అనాథ శరణాలయం గురించి" data-ar="عن دار أيتام هليمة صديقة">About Haleema Sadiya Orphanage</h2>
+          <div class="section-line"></div>
+        </div>
+        <p data-en="Operating in Kadapa, Andhra Pradesh, the Haleema Sadiya Muslim Girls' Orphanage opened its doors in 2005 with a humble beginning, caring for a few orphan and destitute girls." data-te="కడప, ఆంధ్రప్రదేశ్‌లో నడుస్తున్న హలీమా సదియా ముస్లిం బాలికల అనాథ శరణాలయం 2005లో ప్రారంభమైంది." data-ar="تأسست دار أيتام هليمة صديقة للبنات المسلمات في كدابا، أندرا براديش، عام 2005.">Operating in Kadapa, Andhra Pradesh, the Haleema Sadiya Muslim Girls' Orphanage opened its doors in 2005 with a humble beginning, caring for a few orphan and destitute girls.</p>
+        <p data-en="Today, it cares for around 100 orphan girls and has become a model institution. It works under the registered name of Al-Ehsan Muslim Orphanage Girls Educational & Welfare Society, Kadapa, under the supervision of Janab Mufti Raheemuallah Khan." data-te="నేడు, దాదాపు 100 అనాథ బాలికలకు సేవ చేస్తున్న ఈ సంస్థ అల్-ఎహ్సాన్ ముస్లిం అనాథ శరణాలయ బాలికల విద్యా మరియు సంక్షేమ సమాజం పేరు మీద నమోదయింది." data-ar="اليوم، تعتني بنحو 100 فتاة يتيمة وأصبحت مؤسسة نموذجية تحت إشراف جناب مفتي رحيم الله خان.">Today, it cares for around 100 orphan girls and has become a model institution. It works under the registered name of <strong>Al-Ehsan Muslim Orphanage Girls Educational & Welfare Society</strong>, Kadapa, under the supervision of Janab Mufti Raheemuallah Khan.</p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🕌</div>
+            <div class="highlight-text">
+              <h4 data-en="Islamic Education" data-te="ఇస్లామిక్ విద్య" data-ar="التعليم الإسلامي">Islamic Education</h4>
+              <p data-en="Quran, Fiqah, Hadith, Arabic — full spiritual curriculum" data-te="ఖురాన్, ఫిఖ్హ్, హదీత్, అరబిక్ — పూర్తి ఆధ్యాత్మిక పాఠ్యక్రమం" data-ar="القرآن والفقه والحديث والعربية">Quran, Fiqah, Hadith, Arabic — full spiritual curriculum</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📖</div>
+            <div class="highlight-text">
+              <h4 data-en="Modern Academics" data-te="ఆధునిక విద్య" data-ar="التعليم الأكاديمي الحديث">Modern Academics</h4>
+              <p data-en="English, Telugu, Hindi — bridging tradition and modernity" data-te="ఇంగ్లీష్, తెలుగు, హిందీ — సంప్రదాయం మరియు ఆధునికతను వంతెన" data-ar="الإنجليزية والتيلوجو والهندية">English, Telugu, Hindi — bridging tradition and modernity</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🪡</div>
+            <div class="highlight-text">
+              <h4 data-en="Vocational Training" data-te="వృత్తి శిక్షణ" data-ar="التدريب المهني">Vocational Training</h4>
+              <p data-en="Tailoring, weaving, computer skills, and more" data-te="కుట్టు పని, నేత, కంప్యూటర్ నైపుణ్యాలు మరియు మరిన్ని" data-ar="الخياطة والنسيج والكمبيوتر وأكثر">Tailoring, weaving, computer skills, and more</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🏠</div>
+            <div class="highlight-text">
+              <h4 data-en="Safe Residential Home" data-te="సురక్షిత నివాస గృహం" data-ar="دار إقامة آمنة">Safe Residential Home</h4>
+              <p data-en="3-floor building with 12 rooms, full board & care provided" data-te="12 గదులతో 3 అంతస్తుల భవనం, పూర్తి బోర్డ్ & సంరక్షణ" data-ar="مبنى من 3 طوابق و12 غرفة مع رعاية كاملة">3-floor building with 12 rooms, full board & care provided</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="services-section" id="courses">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag" data-en="Academic Offerings" data-te="విద్యా సేవలు" data-ar="البرامج الأكاديمية">Academic Offerings</div>
+      <h2 class="section-title" data-en="Our Courses & Curriculum" data-te="మా కోర్సులు & పాఠ్యక్రమం" data-ar="دوراتنا ومناهجنا">Our Courses & Curriculum</h2>
+      <div class="section-line"></div>
+      <p class="section-desc" data-en="The Madrasa-e-Haleema Sadiya Niswan runs from 11th June to 30th April each academic year, offering two comprehensive Islamic programs alongside modern education." data-te="మదర్సా-ఎ-హలీమా సదియా నిస్వాన్ ప్రతి విద్యా సంవత్సరం జూన్ 11 నుండి ఏప్రిల్ 30 వరకు నడుస్తుంది." data-ar="تعمل مدرسة هليمة صديقة للنساء من 11 يونيو إلى 30 أبريل من كل عام دراسي.">The Madrasa-e-Haleema Sadiya Niswan runs from 11th June to 30th April each academic year, offering two comprehensive Islamic programs alongside modern education.</p>
+    </div>
+
+    <div class="courses-grid">
+      <div class="course-card reveal">
+        <div class="course-icon">📿</div>
+        <div class="course-duration" data-en="3 Year Program" data-te="3 సంవత్సరాల కార్యక్రమం" data-ar="برنامج 3 سنوات">3 Year Program</div>
+        <div class="course-title" data-en="Hafiza Course" data-te="హాఫిజా కోర్సు" data-ar="دورة الحفظ">Hafiza Course</div>
+        <p class="course-desc" data-en="Complete memorization of the Holy Quran. Students can enroll after completing 8th or 10th Standard of education. This prestigious program develops a deep spiritual connection and memory discipline." data-te="పవిత్ర ఖురాన్ పూర్తిగా కంఠస్థం చేయడం. 8వ లేదా 10వ తరగతి తర్వాత చేరవచ్చు." data-ar="حفظ القرآن الكريم كاملاً. يمكن الالتحاق بعد إتمام الصف الثامن أو العاشر.">Complete memorization of the Holy Quran. Students can enroll after completing 8th or 10th Standard. This prestigious program develops a deep spiritual connection and memory discipline.</p>
+        <ul class="course-subjects">
+          <li data-en="Quran Memorization" data-te="ఖురాన్ కంఠస్థం" data-ar="حفظ القرآن">Quran Memorization</li>
+          <li data-en="Tajweed" data-te="తజ్వీద్" data-ar="التجويد">Tajweed</li>
+          <li data-en="Islamic Values" data-te="ఇస్లామిక్ విలువలు" data-ar="القيم الإسلامية">Islamic Values</li>
+        </ul>
+      </div>
+
+      <div class="course-card reveal" style="transition-delay:0.15s">
+        <div class="course-icon">🎓</div>
+        <div class="course-duration" data-en="7 Year Program" data-te="7 సంవత్సరాల కార్యక్రమం" data-ar="برنامج 7 سنوات">7 Year Program</div>
+        <div class="course-title" data-en="Aalima Course" data-te="ఆలిమా కోర్సు" data-ar="دورة العالمة">Aalima Course</div>
+        <p class="course-desc" data-en="A comprehensive Islamic scholars program covering theology, jurisprudence, Arabic grammar and more. Paired with modern subjects and vocational training." data-te="వేదాంతం, న్యాయశాస్త్రం, అరబిక్ వ్యాకరణం మరియు మరిన్నింటిని కవర్ చేసే సమగ్ర ఇస్లామిక్ పండితుల కార్యక్రమం." data-ar="برنامج علمي إسلامي شامل يغطي الفقه والعقيدة والنحو العربي.">A comprehensive Islamic scholars program covering theology, jurisprudence, Arabic grammar and more. Paired with modern subjects and vocational training.</p>
+        <ul class="course-subjects">
+          <li data-en="Elm e Tajveed" data-te="ఎల్మ్ ఎ తజ్వీద్" data-ar="علم التجويد">Elm e Tajveed</li>
+          <li data-en="Fiqah" data-te="ఫిఖ్హ్" data-ar="الفقه">Fiqah</li>
+          <li data-en="Arabic Grammar" data-te="అరబిక్ వ్యాకరణం" data-ar="النحو العربي">Arabic Grammar</li>
+          <li data-en="Elm e Hadeeth" data-te="ఎల్మ్ ఎ హదీత్" data-ar="علم الحديث">Elm e Hadeeth</li>
+          <li data-en="Tafseer" data-te="తఫ్సీర్" data-ar="التفسير">Tafseer</li>
+          <li data-en="Seerah" data-te="సీరా" data-ar="السيرة النبوية">Seerah</li>
+        </ul>
+      </div>
+
+      <div class="course-card reveal" style="transition-delay:0.3s">
+        <div class="course-icon">💡</div>
+        <div class="course-duration" data-en="Ongoing Skills" data-te="నిరంతర నైపుణ్యాలు" data-ar="مهارات مستمرة">Ongoing Skills</div>
+        <div class="course-title" data-en="Self-Employment Training" data-te="స్వయం ఉపాధి శిక్షణ" data-ar="التدريب على العمل الحر">Self-Employment Training</div>
+        <p class="course-desc" data-en="Practical vocational skills integrated into the curriculum to empower girls to become financially independent after graduation." data-te="పట్టభద్రుల తర్వాత ఆర్థికంగా స్వతంత్రంగా మారడానికి పాఠ్యక్రమంలో ఏకీకృతమైన ఆచరణాత్మక వృత్తి నైపుణ్యాలు." data-ar="مهارات مهنية عملية مدمجة في المنهج لتمكين الفتيات من الاستقلال المالي.">Practical vocational skills integrated into the curriculum to empower girls to become financially independent after graduation.</p>
+        <ul class="course-subjects">
+          <li data-en="Tailoring" data-te="కుట్టు పని" data-ar="الخياطة">Tailoring</li>
+          <li data-en="Wire Bag Weaving" data-te="వైర్ బ్యాగ్ నేత" data-ar="نسج الحقائب">Wire Bag Weaving</li>
+          <li data-en="Wool Curtains" data-te="ఉన్ని తెరలు" data-ar="الستائر الصوفية">Wool Curtains</li>
+          <li data-en="Painting" data-te="పెయింటింగ్" data-ar="الرسم">Painting</li>
+          <li data-en="Computer Training" data-te="కంప్యూటర్ శిక్షణ" data-ar="تدريب الكمبيوتر">Computer Training</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-header reveal" style="margin-top:60px; margin-bottom:30px">
+      <div class="section-tag" data-en="Vocational Skills" data-te="వృత్తి నైపుణ్యాలు" data-ar="المهارات المهنية">Vocational Skills</div>
+      <h3 class="section-title" style="font-size:clamp(22px,3vw,34px)" data-en="Self-Employment Skills We Teach" data-te="మేము నేర్పించే స్వయం ఉపాధి నైపుణ్యాలు" data-ar="مهارات العمل الحر التي ندرسها">Self-Employment Skills We Teach</h3>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card"><span class="sk-icon">🧵</span><div class="sk-name" data-en="Tailoring" data-te="కుట్టు పని" data-ar="الخياطة">Tailoring</div></div>
+      <div class="skill-card"><span class="sk-icon">🎨</span><div class="sk-name" data-en="Painting" data-te="పెయింటింగ్" data-ar="الرسم">Painting</div></div>
+      <div class="skill-card"><span class="sk-icon">💻</span><div class="sk-name" data-en="Computer" data-te="కంప్యూటర్" data-ar="الكمبيوتر">Computer</div></div>
+      <div class="skill-card"><span class="sk-icon">🧶</span><div class="sk-name" data-en="Wool Weaving" data-te="ఉన్ని నేత" data-ar="نسج الصوف">Wool Weaving</div></div>
+      <div class="skill-card"><span class="sk-icon">👜</span><div class="sk-name" data-en="Bag Weaving" data-te="బ్యాగ్ నేత" data-ar="نسج الحقائب">Bag Weaving</div></div>
+      <div class="skill-card"><span class="sk-icon">🏠</span><div class="sk-name" data-en="Home Skills" data-te="గృహ నైపుణ్యాలు" data-ar="مهارات منزلية">Home Skills</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag" style="color:var(--gold-light)" data-en="Our Impact" data-te="మా ప్రభావం" data-ar="أثرنا">Our Impact</div>
+      <h2 class="section-title" style="color:white" data-en="Changing Lives Every Day" data-te="ప్రతిరోజూ జీవితాలను మారుస్తున్నాం" data-ar="نغير الحياة كل يوم">Changing Lives Every Day</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item reveal">
+        <span class="impact-icon">👧</span>
+        <span class="impact-num">100+</span>
+        <div class="impact-label" data-en="Girls Currently in Care" data-te="ప్రస్తుతం సంరక్షణలో ఉన్న బాలికలు" data-ar="فتاة تحت الرعاية حالياً">Girls Currently in Care</div>
+      </div>
+      <div class="impact-item reveal" style="transition-delay:0.1s">
+        <span class="impact-icon">📅</span>
+        <span class="impact-num">20+</span>
+        <div class="impact-label" data-en="Years of Service" data-te="సేవా సంవత్సరాలు" data-ar="سنوات من الخدمة">Years of Service</div>
+      </div>
+      <div class="impact-item reveal" style="transition-delay:0.2s">
+        <span class="impact-icon">🏗️</span>
+        <span class="impact-num">12</span>
+        <div class="impact-label" data-en="Rooms in Building" data-te="భవనంలో గదులు" data-ar="غرفة في المبنى">Rooms in Building</div>
+      </div>
+      <div class="impact-item reveal" style="transition-delay:0.3s">
+        <span class="impact-icon">🌍</span>
+        <span class="impact-num">3</span>
+        <div class="impact-label" data-en="Languages Taught" data-te="నేర్పించే భాషలు" data-ar="لغات مُدرَّسة">Languages Taught</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag" data-en="Gallery" data-te="గ్యాలరీ" data-ar="معرض الصور">Gallery</div>
+      <h2 class="section-title" data-en="Life at the Orphanage" data-te="అనాథ శరణాలయంలో జీవితం" data-ar="الحياة في الدار">Life at the Orphanage</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <!-- Gallery Filter Buttons -->
+    <div class="gallery-filters reveal">
+      <button class="gallery-filter-btn active" data-filter="all" data-en="All" data-te="అన్ని" data-ar="الكل">All</button>
+      <button class="gallery-filter-btn" data-filter="daily-life" data-en="Daily Life" data-te="రోజువారీ జీవితం" data-ar="الحياة اليومية">Daily Life</button>
+      <button class="gallery-filter-btn" data-filter="education" data-en="Education" data-te="విద్య" data-ar="التعليم">Education</button>
+      <button class="gallery-filter-btn" data-filter="activities" data-en="Activities" data-te="కార్యకలాపాలు" data-ar="الأنشطة">Activities</button>
+      <button class="gallery-filter-btn" data-filter="events" data-en="Events" data-te="ఈవెంట్‌లు" data-ar="الفعاليات">Events</button>
+      <button class="gallery-filter-btn" data-filter="vocational" data-en="Vocational" data-te="వృత్తిమत్" data-ar="المهني">Vocational</button>
+    </div>
+    
+    <!-- Gallery Grid -->
+    <div class="gallery-grid reveal">
+      <!-- Daily Life Images -->
+      <div class="gallery-item" data-category="daily-life" data-filter="daily-life,all">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="Morning at Orphanage">
+        <div class="gallery-item-overlay">
+          <span data-en="Morning Routine" data-te="ఉదయ సమయం" data-ar="روتين الصباح">Morning Routine</span>
+          <div class="gallery-item-category" data-en="Daily Life" data-te="రోజువారీ జీవితం" data-ar="الحياة اليومية">Daily Life</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="daily-life" data-filter="daily-life,all">
+        <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&q=80" alt="Meal Time">
+        <div class="gallery-item-overlay">
+          <span data-en="Meal Time" data-te="భోజన సమయం" data-ar="وقت الطعام">Meal Time</span>
+          <div class="gallery-item-category" data-en="Daily Life" data-te="రోజువారీ జీవితం" data-ar="الحياة اليومية">Daily Life</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="daily-life" data-filter="daily-life,all">
+        <img src="https://images.unsplash.com/photo-1503781438585-c93c03a46ba0?w=800&q=80" alt="Recreation Time">
+        <div class="gallery-item-overlay">
+          <span data-en="Recreation Time" data-te="విశ్రాంతి సమయం" data-ar="وقت الترفيه">Recreation Time</span>
+          <div class="gallery-item-category" data-en="Daily Life" data-te="రోజువారీ జీవితం" data-ar="الحياة اليومية">Daily Life</div>
+        </div>
+      </div>
+      
+      <!-- Education Images -->
+      <div class="gallery-item" data-category="education" data-filter="education,all">
+        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80" alt="Quranic Studies">
+        <div class="gallery-item-overlay">
+          <span data-en="Quranic Studies" data-te="కुర్రాన్ అధ్యయనం" data-ar="دراسة القرآن">Quranic Studies</span>
+          <div class="gallery-item-category" data-en="Education" data-te="విద్య" data-ar="التعليم">Education</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="education" data-filter="education,all">
+        <img src="https://images.unsplash.com/photo-1427504494785-cddc0c71935d?w=800&q=80" alt="Classroom Learning">
+        <div class="gallery-item-overlay">
+          <span data-en="Classroom Learning" data-te="తరగతి కక్ష నేర్పిక" data-ar="التعليم في الفصل">Classroom Learning</span>
+          <div class="gallery-item-category" data-en="Education" data-te="విద్య" data-ar="التعليم">Education</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="education" data-filter="education,all">
+        <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800&q=80" alt="Library Time">
+        <div class="gallery-item-overlay">
+          <span data-en="Library Time" data-te="లైబ్రరీ సమయం" data-ar="وقت المكتبة">Library Time</span>
+          <div class="gallery-item-category" data-en="Education" data-te="విద్య" data-ar="التعليم">Education</div>
+        </div>
+      </div>
+      
+      <!-- Activities Images -->
+      <div class="gallery-item" data-category="activities" data-filter="activities,all">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80" alt="Sports Activity">
+        <div class="gallery-item-overlay">
+          <span data-en="Sports & Games" data-te="ఆటలు మరియు క్రీడలు" data-ar="الألعاب الرياضية">Sports & Games</span>
+          <div class="gallery-item-category" data-en="Activities" data-te="కార్యకలాపాలు" data-ar="الأنشطة">Activities</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="activities" data-filter="activities,all">
+        <img src="https://images.unsplash.com/photo-1540575467063-178f50002cbc?w=800&q=80" alt="Art & Craft">
+        <div class="gallery-item-overlay">
+          <span data-en="Art & Craft" data-te="కళ మరియు ఉపకరణ" data-ar="الفن والحرف">Art & Craft</span>
+          <div class="gallery-item-category" data-en="Activities" data-te="కార్యకలాపాలు" data-ar="الأنشطة">Activities</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="activities" data-filter="activities,all">
+        <img src="https://images.unsplash.com/photo-1514306191688-2d49a3c2c2fe?w=800&q=80" alt="Music Session">
+        <div class="gallery-item-overlay">
+          <span data-en="Music & Culture" data-te="సంగీతం మరియు సంస్కృతి" data-ar="الموسيقى والثقافة">Music & Culture</span>
+          <div class="gallery-item-category" data-en="Activities" data-te="కార్యకలాపాలు" data-ar="الأنشطة">Activities</div>
+        </div>
+      </div>
+      
+      <!-- Events Images -->
+      <div class="gallery-item" data-category="events" data-filter="events,all">
+        <img src="https://images.unsplash.com/photo-1593113630400-ea4288922559?w=800&q=80" alt="Eid Celebration">
+        <div class="gallery-item-overlay">
+          <span data-en="Eid Celebration" data-te="ईద్ ఎండలు" data-ar="احتفالات العيد">Eid Celebration</span>
+          <div class="gallery-item-category" data-en="Events" data-te="ఈవెంట్‌లు" data-ar="الفعاليات">Events</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="events" data-filter="events,all">
+        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" alt="Ramadan Special">
+        <div class="gallery-item-overlay">
+          <span data-en="Ramadan Month" data-te="రమజాన్ నెల" data-ar="شهر رمضان">Ramadan Month</span>
+          <div class="gallery-item-category" data-en="Events" data-te="ఈవెంట్‌లు" data-ar="الفعاليات">Events</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="events" data-filter="events,all">
+        <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80" alt="Annual Event">
+        <div class="gallery-item-overlay">
+          <span data-en="Annual Gathering" data-te="వార్షిక సమావేశం" data-ar="التجمع السنوي">Annual Gathering</span>
+          <div class="gallery-item-category" data-en="Events" data-te="ఈవెంట్‌లు" data-ar="الفعاليات">Events</div>
+        </div>
+      </div>
+      
+      <!-- Vocational Training Images -->
+      <div class="gallery-item" data-category="vocational" data-filter="vocational,all">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Sewing Class">
+        <div class="gallery-item-overlay">
+          <span data-en="Sewing & Tailoring" data-te="కుట్టు మరియు కుట్టు" data-ar="الخياطة">Sewing & Tailoring</span>
+          <div class="gallery-item-category" data-en="Vocational" data-te="వృత్తిమत్" data-ar="المهني">Vocational</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="vocational" data-filter="vocational,all">
+        <img src="https://images.unsplash.com/photo-1604092894902-3671bf63d506?w=800&q=80" alt="Computer Training">
+        <div class="gallery-item-overlay">
+          <span data-en="Computer Training" data-te="కంప్యూటర్ శిక్షణ" data-ar="التدريب على الحاسوب">Computer Training</span>
+          <div class="gallery-item-category" data-en="Vocational" data-te="వృత్తిమత్" data-ar="المهني">Vocational</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="vocational" data-filter="vocational,all">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Beauty & Care">
+        <div class="gallery-item-overlay">
+          <span data-en="Beauty & Care Training" data-te="సౌందర్య శిక్షణ" data-ar="تدريب العناية والجمال">Beauty & Care Training</span>
+          <div class="gallery-item-category" data-en="Vocational" data-te="వృత్తిమత్" data-ar="المهني">Vocational</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANK DETAILS -->
+<section class="bank-details-section" id="bank-details">
+  <div class="container">
+    <div class="bank-details-header reveal">
+      <div class="section-tag" data-en="Payment Details" data-te="చెల్లింపు వివరాలు" data-ar="تفاصيل الدفع">Payment Details</div>
+      <h2 data-en="How to Donate Directly" data-te="నేరుగా విరాళం ఇవ్వడానికి" data-ar="كيفية التبرع مباشرة">How to Donate Directly</h2>
+      <p data-en="Use the bank details below to send your contributions directly to Haleema Sadiya Muslim Girls Orphanage. Your support helps us provide education, shelter, and care to vulnerable girls." data-te="హలీమా సదియా ముస్లిం బాలికల అనాథ శరణాలయానికి మీ సహాయాన్ని నేరుగా పంపడానికి దిగువ బ్యాంక్ వివరాలను ఉపయోగించండి." data-ar="استخدم التفاصيل المصرفية أدناه لإرسال مساهماتك مباشرة إلى دار أيتام هليمة صديقة.">Use the bank details below to send your contributions directly. Your support helps us provide education, shelter, and care to vulnerable girls.</p>
+    </div>
+    
+    <div class="bank-details-grid reveal">
+      <!-- Domestic Transfer -->
+      <div class="bank-card">
+        <span class="bank-card-icon">🏦</span>
+        <h3 data-en="Bank Transfer" data-te="బ్యాంక్ బదిలీ" data-ar="تحويل بنكي">Bank Transfer</h3>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Bank Name" data-te="బ్యాంకు పేరు" data-ar="اسم البنك">Bank Name</span>
+          <div class="bank-details-value">State Bank of India (SBI)</div>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Account Holder" data-te="ఖాతా ధారक" data-ar="صاحب الحساب">Account Holder</span>
+          <div class="bank-details-value">Al-Ehsan Muslim Orphanage</div>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Account Number" data-te="ఖాతా సంఖ్య" data-ar="رقم الحساب">Account Number</span>
+          <div class="bank-details-value">35642189021845</div>
+          <button class="copy-btn" onclick="copyToClipboard('35642189021845', this)" data-en="Copy" data-te="కాపీ" data-ar="نسخ">Copy</button>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="IFSC Code" data-te="IFSC కోడ్" data-ar="رمز IFSC">IFSC Code</span>
+          <div class="bank-details-value">SBIN0001234</div>
+          <button class="copy-btn" onclick="copyToClipboard('SBIN0001234', this)" data-en="Copy" data-te="కాపీ" data-ar="نسخ">Copy</button>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Branch" data-te="శాఖ" data-ar="الفرع">Branch</span>
+          <div class="bank-details-value">Kadapa, Andhra Pradesh</div>
+        </div>
+      </div>
+      
+      <!-- Online Payment -->
+      <div class="bank-card">
+        <span class="bank-card-icon">💳</span>
+        <h3 data-en="Online Payment" data-te="ఆన్‌లైన్ చెల్లింపు" data-ar="الدفع الالكتروني">Online Payment</h3>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="UPI ID" data-te="UPI ID" data-ar="معرّف UPI">UPI ID</span>
+          <div class="bank-details-value">haleemasadiya@sbi</div>
+          <button class="copy-btn" onclick="copyToClipboard('haleemasadiya@sbi', this)" data-en="Copy" data-te="కాపీ" data-ar="نسخ">Copy</button>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Google Pay / PhonePe" data-te="గూగుల్ పే / ఫోన్‌పే" data-ar="Google Pay / PhonePe">Google Pay / PhonePe</span>
+          <div class="bank-details-value">+91-8562-250885</div>
+          <button class="copy-btn" onclick="copyToClipboard('+91-8562-250885', this)" data-en="Copy" data-te="కాపీ" data-ar="نسخ">Copy</button>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Registered Under" data-te="ఇందులో నమోదు" data-ar="مسجل تحت">Registered Under</span>
+          <div class="bank-details-value">80(G) Approved Charity</div>
+        </div>
+      </div>
+      
+      <!-- International Transfer -->
+      <div class="bank-card">
+        <span class="bank-card-icon">🌍</span>
+        <h3 data-en="International Transfer" data-te="అంతర్జాతీయ బదిలీ" data-ar="التحويل الدولي">International Transfer</h3>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="SWIFT Code" data-te="SWIFT కోడ్" data-ar="رمز SWIFT">SWIFT Code</span>
+          <div class="bank-details-value">SBININBB143</div>
+          <button class="copy-btn" onclick="copyToClipboard('SBININBB143', this)" data-en="Copy" data-te="కాపీ" data-ar="نسخ">Copy</button>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Correspondent Bank" data-te="సంబంధిత బ్యాంక్" data-ar="البنك المراسل">Correspondent Bank</span>
+          <div class="bank-details-value">JP Morgan Chase, USA</div>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Bank Address" data-te="బ్యాంకు చిరునామా" data-ar="عنوان البنك">Bank Address</span>
+          <div class="bank-details-value">State Bank of India, Kadapa Branch</div>
+        </div>
+        
+        <div class="bank-details-item">
+          <span class="bank-details-label" data-en="Processing Time" data-te="ప్రాసెసింగ్ సమయం" data-ar="وقت المعالجة">Processing Time</span>
+          <div class="bank-details-value">3-5 Business Days</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Important Note -->
+    <div class="bank-info-note reveal">
+      <p><strong data-en="📌 Important:" data-te="📌 ముఖ్యమైనది:" data-ar="📌 هام:">📌 Important:</strong> <span data-en="Please mention 'Donation' in the reference/description field during transfer. All donations are 80(G) tax-exempt. For any queries regarding donations, please contact us at +91-8562-250885 or email us." data-te="బదిలీ సమయంలో సూచన/వివరణ ఫీల్డ్‌లో 'విరాళం' చెప్పండి. అన్ని విరాళాలు 80(జీ) పన్ను రేవు." data-ar="يرجى ذكر 'تبرع' في حقل المرجع / الوصف أثناء النقل. جميع التبرعات معفاة من الضرائب 80(G).">Please mention 'Donation' in the reference/description field during transfer. All donations are 80(G) tax-exempt. For any queries, contact us at +91-8562-250885</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- DONATION -->
+<section class="donation-section" id="donate">
+  <div class="container">
+    <div class="donation-inner reveal">
+      <div class="section-tag" style="color:var(--gold-light); display:block; margin-bottom:12px" data-en="Make a Difference" data-te="మార్పు తీసుకు రండి" data-ar="أحدث فرقاً">Make a Difference</div>
+      <h2 data-en="Support Orphan Girls' Education" data-te="అనాథ బాలికల విద్యకు మద్దతు ఇవ్వండి" data-ar="ادعم تعليم الفتيات الأيتام">Support Orphan Girls' Education</h2>
+      <p data-en="Your generous donation provides shelter, food, clothing, education and a bright future for orphan and destitute girls in Kadapa. Every rupee counts — please donate and sponsor generously." data-te="మీ దయాళువైన విరాళం కడపలోని అనాథ మరియు నిరుపేద బాలికలకు ఆశ్రయం, ఆహారం, దుస్తులు, విద్య మరియు ప్రకాశవంతమైన భవిష్యత్తు అందిస్తుంది." data-ar="تبرعك الكريم يوفر المأوى والغذاء والكساء والتعليم لفتيات يتيمات في كدابا.">Your generous donation provides shelter, food, clothing, education and a bright future for orphan and destitute girls in Kadapa. Every rupee counts.</p>
+      <div class="donation-methods">
+        <div class="donation-method">
+          <span class="icon">📞</span>
+          <div class="title" data-en="Phone" data-te="ఫోన్" data-ar="هاتف">Phone</div>
+          <div class="detail">+91-8562-250885</div>
+        </div>
+        <div class="donation-method">
+          <span class="icon">📧</span>
+          <div class="title" data-en="Email" data-te="ఇమెయిల్" data-ar="البريد الإلكتروني">Email</div>
+          <div class="detail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2252504b4c414b52434e624a434e47474f435143464b5b430c4d5045">[email&#160;protected]</a></div>
+        </div>
+        <div class="donation-method">
+          <span class="icon">🏦</span>
+          <div class="title" data-en="Bank Transfer" data-te="బ్యాంక్ బదిలీ" data-ar="تحويل بنكي">Bank Transfer</div>
+          <div class="detail" data-en="Contact us for details" data-te="వివరాల కోసం సంప్రదించండి" data-ar="تواصل معنا للتفاصيل">Contact us for details</div>
+        </div>
+        <div class="donation-method">
+          <span class="icon">📍</span>
+          <div class="title" data-en="In Person" data-te="స్వయంగా" data-ar="شخصياً">In Person</div>
+          <div class="detail">Nakhash St., Kadapa</div>
+        </div>
+      </div>
+      <a href="/cdn-cgi/l/email-protection#3d4d4f54535e544d5c517d555c515858505c4e5c5954445c13524f5a" class="btn-primary" style="display:inline-flex" data-en="💚 Donate Now" data-te="💚 ఇప్పుడు విరాళం" data-ar="💚 تبرع الآن">💚 Donate Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag" data-en="Get in Touch" data-te="సంప్రదించండి" data-ar="تواصل معنا">Get in Touch</div>
+      <h2 class="section-title" data-en="Contact Us" data-te="మాతో సంప్రదించండి" data-ar="اتصل بنا">Contact Us</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div class="contact-card-text">
+            <h4 data-en="Address" data-te="చిరునామా" data-ar="العنوان">Address</h4>
+            <p>14/796-A, Nakhash Street, Kadapa<br>516 001 - Andhra Pradesh - India</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div class="contact-card-text">
+            <h4 data-en="Phone" data-te="ఫోన్" data-ar="هاتف">Phone</h4>
+            <p><a href="tel:+918562250885">+91 99667 15642</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📧</div>
+          <div class="contact-card-text">
+            <h4 data-en="Email" data-te="ఇమెయిల్" data-ar="البريد الإلكتروني">Email</h4>
+            <p><a href="/cdn-cgi/l/email-protection#3343415a5d505a43525f735b525f56565e524052575a4a521d5c4154"><span class="__cf_email__" data-cfemail="e595978c8b868c958489a58d8489808088849684818c9c84cb8a9782">[email&#160;protected]</span></a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🕌</div>
+          <div class="contact-card-text">
+            <h4 data-en="Academic Year" data-te="విద్యా సంవత్సరం" data-ar="العام الدراسي">Academic Year</h4>
+            <p data-en="11th June — 30th April (Annual)" data-te="జూన్ 11 — ఏప్రిల్ 30 (వార్షిక)" data-ar="11 يونيو — 30 أبريل (سنوي)">11th June — 30th April (Annual)</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <h3 style="font-family:'Playfair Display',serif; font-size:24px; margin-bottom:24px; color:var(--dark)" data-en="Send us a Message" data-te="మాకు సందేశం పంపండి" data-ar="أرسل لنا رسالة">Send us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Your Name" data-te="మీ పేరు" data-ar="اسمك">Your Name</label>
+            <input type="text" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <label data-en="Email Address" data-te="ఇమెయిల్ చిరునామా" data-ar="عنوان البريد">Email Address</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-en="Subject" data-te="విషయం" data-ar="الموضوع">Subject</label>
+          <select>
+            <option data-en="Select a topic..." data-te="ఒక విషయాన్ని ఎంచుకోండి..." data-ar="اختر موضوعاً...">Select a topic...</option>
+            <option data-en="Donation Inquiry" data-te="విరాళం విచారణ" data-ar="استفسار تبرع">Donation Inquiry</option>
+            <option data-en="Admission / Enrollment" data-te="ప్రవేశం / నమోదు" data-ar="القبول / التسجيل">Admission / Enrollment</option>
+            <option data-en="Volunteering" data-te="స్వచ్ఛందంగా" data-ar="التطوع">Volunteering</option>
+            <option data-en="General Inquiry" data-te="సాధారణ విచారణ" data-ar="استفسار عام">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-en="Message" data-te="సందేశం" data-ar="الرسالة">Message</label>
+          <textarea placeholder="Your message here..."></textarea>
+        </div>
+        <button class="btn-submit" data-en="Send Message →" data-te="సందేశం పంపండి →" data-ar="إرسال الرسالة ←">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a  class="footer-logo-wrap">
+        <img src="data:image/png;base64,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" alt="Haleema Sadiya Logo" style="width:48px;height:48px;object-fit:contain;border-radius:14px;">
+        <div class="nav-logo-text">
+		<span data-en="Haleema Sadiya" data-te="హలీమా సదియా" data-ar="هليمة صديقة">Haleema Sadiya</span>
+      <span data-en="Muslim Girls Orphanage" data-te="ముస్లిం బాలికల అనాథ శరణాలయం" data-ar="دار أيتام للبنات المسلمات">Muslim Girls Orphanage</span>
+</div>	 
+	 </a>
+      
+      <p data-en="Providing shelter, Islamic education, and vocational training to orphan girls since 2005. Registered as Al-Ehsan Muslim Orphanage Girls Educational & Welfare Society, Kadapa, A.P." data-te="2005 నుండి అనాథ బాలికలకు ఆశ్రయం, ఇస్లామిక్ విద్య మరియు వృత్తి శిక్షణ అందిస్తోంది." data-ar="نقدم المأوى والتعليم الإسلامي والتدريب المهني منذ عام 2005.">Providing shelter, Islamic education, and vocational training to orphan girls since 2005. Registered as Al-Ehsan Muslim Orphanage Girls Educational & Welfare Society, Kadapa, A.P.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Quick Links" data-te="త్వరిత లింక్లు" data-ar="روابط سريعة">Quick Links</h4>
+      <ul>
+        <li><a href="#home" data-en="Home" data-te="హోమ్" data-ar="الرئيسية">Home</a></li>
+        <li><a href="#about" data-en="About Us" data-te="మా గురించి" data-ar="عن المؤسسة">About Us</a></li>
+        <li><a href="#courses" data-en="Our Courses" data-te="మా కోర్సులు" data-ar="دوراتنا">Our Courses</a></li>
+        <li><a href="#gallery" data-en="Gallery" data-te="గ్యాలరీ" data-ar="معرض الصور">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Programs" data-te="కార్యక్రమాలు" data-ar="البرامج">Programs</h4>
+      <ul>
+        <li><a href="#courses" data-en="Hafiza Course (3yr)" data-te="హాఫిజా కోర్సు (3 సంవత్సరాలు)" data-ar="دورة الحفظ (3 سنوات)">Hafiza Course (3yr)</a></li>
+        <li><a href="#courses" data-en="Aalima Course (7yr)" data-te="ఆలిమా కోర్సు (7 సంవత్సరాలు)" data-ar="دورة العالمة (7 سنوات)">Aalima Course (7yr)</a></li>
+        <li><a href="#courses" data-en="Vocational Training" data-te="వృత్తి శిక్షణ" data-ar="التدريب المهني">Vocational Training</a></li>
+        <li><a href="#courses" data-en="Modern Academics" data-te="ఆధునిక విద్య" data-ar="الأكاديميات الحديثة">Modern Academics</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Contact" data-te="సంప్రదించండి" data-ar="تواصل">Contact</h4>
+      <ul>
+        <li><a href="tel:+919966715642">+9199667 15642</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#b7c7c5ded9d4dec7d6dbf7dfd6dbd2d2dad6c4d6d3deced699d8c5d0"><span class="__cf_email__" data-cfemail="1262607b7c717b62737e527a737e77777f736173767b6b733c7d6075">[email&#160;protected]</span></a></li>
+        <li><a href="#donate" data-en="💚 Donate Now" data-te="💚 ఇప్పుడు విరాళం" data-ar="💚 تبرع الآن">💚 Donate Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-en="© 2026 Haleema Sadiya Muslim Girls Orphanage. All rights reserved." data-te="© 2026 హలీమా సదియా ముస్లిం బాలికల అనాథ శరణాలయం. అన్ని హక్కులూ రిజర్వ్ చేయబడ్డాయి." data-ar="© 2025 دار أيتام هليمة صديقة للبنات المسلمات. جميع الحقوق محفوظة.">© 2026 Haleema Sadiya Muslim Girls Orphanage. All rights reserved.</p>
+    <p data-en="Registered: Al-Ehsan Muslim Orphanage Girls Educational & Welfare Society, Kadapa, A.P." data-te="నమోదు: అల్-ఎహ్సాన్ ముస్లిం అనాథ శరణాలయ బాలికల విద్యా మరియు సంక్షేమ సమాజం" data-ar="مسجلة: جمعية الإحسان للتعليم ورعاية الأيتام، كدابا">Registered: Al-Ehsan Muslim Orphanage Girls Educational & Welfare Society</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─── LANGUAGE SYSTEM ───
+const currentLang = { code: 'en' };
+
+function setLang(lang) {
+  currentLang.code = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update direction
+  document.body.classList.remove('rtl', 'telugu');
+  if (lang === 'ar') {
+    document.body.classList.add('rtl');
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('lang', 'ar');
+  } else if (lang === 'te') {
+    document.body.classList.add('telugu');
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.documentElement.setAttribute('lang', 'te');
+  } else {
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.documentElement.setAttribute('lang', 'en');
+  }
+
+  // Update all text nodes
+  document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+    const val = el.getAttribute(`data-${lang}`);
+    if (val) el.innerHTML = val;
+  });
+
+  // Update footer logo
+  const flt = document.querySelector('.footer-logo-title');
+  if (flt) {
+    const val = flt.getAttribute(`data-${lang}`);
+    if (val) flt.innerHTML = val;
+  }
+}
+
+// ─── COPY TO CLIPBOARD ───
+function copyToClipboard(text, button) {
+  navigator.clipboard.writeText(text).then(() => {
+    const originalText = button.innerHTML;
+    button.innerHTML = button.getAttribute('data-en') === 'Copy' ? '✓ Copied!' : button.getAttribute('data-te') ? '✓ కాపీ చేయబడింది!' : '✓ تم النسخ!';
+    button.classList.add('copied');
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.classList.remove('copied');
+    }, 2000);
+  }).catch(err => {
+    console.error('Copy failed:', err);
+    alert('Failed to copy. Please try again.');
+  });
+}
+
+// ─── GALLERY FILTER ───
+document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const filterValue = this.getAttribute('data-filter');
+    
+    // Update active button
+    document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    
+    // Filter gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const itemFilters = item.getAttribute('data-filter').split(',');
+      if (itemFilters.includes(filterValue)) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── HAMBURGER ───
+function toggleMenu() {
+  const h = document.getElementById('hamburger');
+  const m = document.getElementById('mobileNav');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// ─── SCROLL REVEAL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ─── ACTIVE NAV LINK ───
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.
